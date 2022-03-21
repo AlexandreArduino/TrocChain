@@ -1,0 +1,1 @@
+Une image, pour être indexée dans le réseau, doit avoir une taille de 100x100 px.
