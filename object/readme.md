@@ -1,0 +1,1 @@
+Partie désignant la déclaration d'objets dans le réseau.
