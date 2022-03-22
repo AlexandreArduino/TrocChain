@@ -18,4 +18,6 @@ all: clean $(OBJECTS)
 clean:
 	rm -f $(EXECUTABLE)
 	rm -Rf build/
+	rm -Rf .cache/
 	mkdir build/
+	mkdir .cache/

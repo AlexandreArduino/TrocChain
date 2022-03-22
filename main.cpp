@@ -4,6 +4,6 @@
 
 int main() {
     logger.enable();
-    ObjectCreation::generate_object_template("assets/examples/linux.jpeg");
+    ObjectCreation::generate_object_template("assets/examples/linux.jpeg", {"Tux", "Logo", "Picture"});
     return 0;
 }
