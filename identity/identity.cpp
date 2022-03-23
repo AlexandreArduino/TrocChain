@@ -11,15 +11,22 @@ namespace IdentityCreation {
 
         std::time_t timestamp = std::time(NULL);
 
-        std::string id = sha256(std::to_string(timestamp));
-        std::string password_hash = sha256(std::string(password));
+        std::string str_id = sha256(std::to_string(timestamp));
+        const char *cc_id = str_id.c_str();
 
-        new_identity.id = id.c_str();
-        new_identity.password_hash = password_hash.c_str();
+        memcpy((void*)&new_identity.id[0], (void*)cc_id, LEN_SHA256);
 
-        logger.successln(std::string("User id : ") + std::string(new_identity.id));
+        std::string str_password_hash = sha256(std::string(password));
+        const char *cc_password_hash = str_password_hash.c_str();
+
+        memcpy((void*)&new_identity.password_hash[0], (void*)cc_password_hash, LEN_SHA256);
 
         return new_identity;
 
+    }
+
+    bool save_identity_to_file(struct IdentityObject to_save) {
+        logger.infoln(std::string("Saving user ") + std::string(to_save.id) + std::string(" to file..."));
+        return true;
     }
 }
