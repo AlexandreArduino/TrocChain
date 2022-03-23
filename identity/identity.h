@@ -6,7 +6,7 @@
 #include <ctime>
 #include <fstream>
 
-#define LEN_SHA256 64
+#define LEN_SHA256 65
 
 struct IdentityObject {
     char id[LEN_SHA256];

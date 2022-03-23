@@ -30,6 +30,21 @@ namespace IdentityCreation {
         for(uint8_t i = 0; i < LEN_SHA256; i++) logger.putchar(to_save.id[i]);
         logger.println(" to file...");
 
+
+        std::string filename("blockchain/identity/");
+        filename += std::string(to_save.id);
+
+        std::ofstream file;
+        file.open(filename);
+
+        if(!file.is_open()) {
+            logger.errorln(std::string("Unable to open ") + filename + std::string(" !"));
+            return false;
+        } else {
+            file << "PASSWORD_HASH=" << to_save.password_hash << std::endl;
+            file.close();
+        }
+
         return true;
     }
 }
