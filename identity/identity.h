@@ -4,6 +4,7 @@
 #include "../debug/log.h"
 #include "../crypto/sha256.h"
 #include <ctime>
+#include <fstream>
 
 #define LEN_SHA256 64
 

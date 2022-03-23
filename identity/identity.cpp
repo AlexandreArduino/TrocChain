@@ -26,7 +26,10 @@ namespace IdentityCreation {
     }
 
     bool save_identity_to_file(struct IdentityObject to_save) {
-        logger.infoln(std::string("Saving user ") + std::string(to_save.id) + std::string(" to file..."));
+        logger.info(std::string("Saving user "));
+        for(uint8_t i = 0; i < LEN_SHA256; i++) logger.putchar(to_save.id[i]);
+        logger.println(" to file...");
+
         return true;
     }
 }

@@ -21,6 +21,11 @@ public:
     void infoln(std::string str);
     void successln(std::string str);
     void errorln(std::string str);
+    void putchar(char c);
+    void print(const char *str);
+    void print(std::string str);
+    void println(const char *str);
+    void println(std::string str);
 private:
 private:
     bool state;

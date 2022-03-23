@@ -75,3 +75,35 @@ void Logger::errorln(std::string str) {
         std::cout << std::endl;
     }
 }
+
+void Logger::putchar(char c) {
+    if(this->state) {
+        std::cout << c;
+    }
+}
+
+void Logger::print(const char *str) {
+    if(this->state) {
+        std::cout << str;
+    }
+}
+
+void Logger::print(std::string str) {
+    if(this->state) {
+        std::cout << str;
+    }
+}
+
+void Logger::println(const char *str) {
+    if(this->state) {
+        this->print(str);
+        std::cout << std::endl;
+    }
+}
+
+void Logger::println(std::string str) {
+    if(this->state) {
+        this->print(str);
+        std::cout << std::endl;
+    }
+}
