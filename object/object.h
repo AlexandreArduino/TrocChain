@@ -8,6 +8,11 @@
 
 // Main Object Structure
 
+struct ObjectsList {
+    struct Object *previous = NULL;
+    struct Object *next;
+}__attribute__((packed));
+
 struct KeywordsDescription {
     const char *first;
     const char *second;

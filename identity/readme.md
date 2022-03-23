@@ -1,0 +1,1 @@
+Cette partie permet de générer une identité sur le réseau.
