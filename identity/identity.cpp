@@ -1,5 +1,7 @@
 #include "identity.h"
 
+struct IdentityObject genesis_user = {"genesis", "no_password", "NULL"};
+
 namespace IdentityCreation {
     struct IdentityObject create_new_identity(const char *password) {
         
@@ -26,25 +28,26 @@ namespace IdentityCreation {
     }
 
     bool save_identity_to_file(struct IdentityObject to_save) {
-        logger.info(std::string("Saving user "));
-        for(uint8_t i = 0; i < LEN_SHA256; i++) logger.putchar(to_save.id[i]);
-        logger.println(" to file...");
+        return IdentityFileOperations::write_new_block(to_save);
+    }
 
+    bool save_genesis_identity() {
+
+        return IdentityFileOperations::write_new_block(genesis_user);
+    }
+
+    bool is_genesis_here() {
+        logger.infoln("Checking if genesis user is present...");
 
         std::string filename("blockchain/identity/");
-        filename += std::string(to_save.id);
+        filename += std::string(genesis_user.id);
 
-        std::ofstream file;
+        std::ifstream file;
         file.open(filename);
 
-        if(!file.is_open()) {
-            logger.errorln(std::string("Unable to open ") + filename + std::string(" !"));
-            return false;
-        } else {
-            file << "PASSWORD_HASH=" << to_save.password_hash << std::endl;
+        if(!file.is_open()) return false; else {
             file.close();
+            return true;
         }
-
-        return true;
     }
 }

@@ -5,16 +5,14 @@
 #include "../crypto/sha256.h"
 #include <ctime>
 #include <fstream>
+#include "object.h"
+#include "fileop.h"
 
-#define LEN_SHA256 65
-
-struct IdentityObject {
-    char id[LEN_SHA256];
-    char password_hash[LEN_SHA256];
-
-}__attribute__((packed));
+extern struct IdentityObject genesis_user;
 
 namespace IdentityCreation {
     struct IdentityObject create_new_identity(const char *password);
     bool save_identity_to_file(struct IdentityObject to_save);
+    bool save_genesis_identity();
+    bool is_genesis_here();
 }
