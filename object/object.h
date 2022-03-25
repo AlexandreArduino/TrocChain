@@ -5,6 +5,7 @@
 #include <ctime>
 #include "../crypto/sha256.h"
 #include <fstream>
+#include <filesystem>
 
 // Main Object Structure
 
@@ -20,7 +21,7 @@ struct KeywordsDescription {
 }__attribute__((packed));
 
 struct Object {
-    const char *signature;
+    char signature[LEN_SHA256];
     const char *image_path;
     struct KeywordsDescription descriptors;
 }__attribute__((packed));
@@ -31,4 +32,5 @@ struct Object {
 
 namespace ObjectCreation {
     struct Object generate_object_template(const char *src, struct KeywordsDescription descriptors);
+    bool save_object_to_file(struct Object object);
 }

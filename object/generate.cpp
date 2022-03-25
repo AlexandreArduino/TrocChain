@@ -40,7 +40,8 @@ namespace ObjectCreation {
 
             logger.successln(std::string("Signature : ") + picture_signature);
 
-            new_object.signature = picture_signature.c_str();
+            const char *cc_picture_signature = picture_signature.c_str();
+            memcpy((void*)&new_object.signature[0], (void*)cc_picture_signature, LEN_SHA256);
 
             return new_object;
         }

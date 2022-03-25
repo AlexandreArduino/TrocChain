@@ -2,6 +2,8 @@
 #define SHA256_H
 #include <string>
  
+#define LEN_SHA256 65
+
 class SHA256
 {
 protected:

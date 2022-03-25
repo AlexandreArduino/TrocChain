@@ -5,7 +5,8 @@
 
 int main() {
     logger.enable();
-    // ObjectCreation::generate_object_template("assets/examples/linux.jpeg", {"Tux", "Logo", "Picture"});
+    struct Object tux = ObjectCreation::generate_object_template("assets/examples/linux.jpeg", {"Tux", "Logo", "Picture"});
+    ObjectCreation::save_object_to_file(tux);
     // struct IdentityObject user = IdentityCreation::create_new_identity("admin"); 
     // IdentityCreation::save_identity_to_file(user);
     if(!IdentityCreation::is_genesis_here()) IdentityCreation::save_genesis_identity();
