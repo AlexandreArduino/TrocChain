@@ -5,6 +5,7 @@
 #include <string.h>
 #include <stdlib.h>
 #include <stdio.h>
+#include "system/command.h"
 
 #define RESIZED_WIDTH_IMAGE 100 // px
 #define RESIZED_HEIGHT_IMAGE 100 // px

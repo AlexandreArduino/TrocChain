@@ -10,8 +10,11 @@ namespace Library {
                 return false;
             } else {
                 logger.infoln("Resizing image...");
-                system((std::string("convert ") + std::string(src) + std::string(" -resize ") + std::string(RESIZED_WIDTH_IMAGE_STRING) + std::string(" ") + std::string(dest)).c_str());
-                return true;
+                if(Library::run(std::string("convert ") + std::string(src) + std::string(" -resize ") + std::string(RESIZED_WIDTH_IMAGE_STRING) + std::string(" ") + std::string(dest)) != "") {
+                    logger.errorln("convert process returned string information! Conversion cancelled!");
+                    return false;
+                }
+                else return true;
             }
         }
     }
