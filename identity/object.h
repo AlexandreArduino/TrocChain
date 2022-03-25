@@ -8,3 +8,5 @@ struct IdentityObject {
     char next_id[LEN_SHA256];
 
 }__attribute__((packed));
+
+extern struct IdentityObject null_user;

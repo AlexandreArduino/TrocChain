@@ -3,3 +3,4 @@ build/
 .vscode/
 .cache/
 ./gource.mp4
+blockchain/identity/*

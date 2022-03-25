@@ -23,17 +23,22 @@ namespace IdentityCreation {
 
         memcpy((void*)&new_identity.password_hash[0], (void*)cc_password_hash, LEN_SHA256);
 
+        std::string str_next_hash("NULL");
+        const char *cc_next_hash = str_next_hash.c_str();
+
+        memcpy((void*)&new_identity.next_id[0], (void*)cc_next_hash, 5);
+
         return new_identity;
 
     }
 
     bool save_identity_to_file(struct IdentityObject to_save) {
-        return IdentityFileOperations::write_new_block(to_save);
+        return IdentityFileOperations::write_new_block_independantly(to_save);
     }
 
     bool save_genesis_identity() {
 
-        return IdentityFileOperations::write_new_block(genesis_user);
+        return IdentityFileOperations::write_new_block_independantly(genesis_user);
     }
 
     bool is_genesis_here() {
