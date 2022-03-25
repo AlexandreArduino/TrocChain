@@ -10,6 +10,8 @@
 
 extern struct IdentityObject genesis_user;
 
+#define MINIMUM_PASSWORD_SIZE 12
+
 namespace IdentityCreation {
     struct IdentityObject create_new_identity(const char *password);
     bool save_identity_to_file(struct IdentityObject to_save);

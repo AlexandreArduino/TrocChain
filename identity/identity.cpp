@@ -9,6 +9,11 @@ namespace IdentityCreation {
         
         logger.infoln("Creating new identity object...");
 
+        if(std::string(password).length() < MINIMUM_PASSWORD_SIZE) {
+            logger.errorln("The password must have a length of 12!");
+            return null_user;
+        }
+
         struct IdentityObject new_identity;
 
         std::time_t timestamp = std::time(NULL);

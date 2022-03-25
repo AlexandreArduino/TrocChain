@@ -10,4 +10,5 @@
 namespace IdentityBlockOperations {
     std::string read_field(std::string field, std::string content_block_string);
     bool is_next_id_null(struct IdentityObject block);
+    bool compare(struct IdentityObject one, struct IdentityObject two);
 }

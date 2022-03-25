@@ -22,4 +22,13 @@ namespace IdentityBlockOperations {
         }
         return true;
     }
+
+    bool compare(struct IdentityObject one, struct IdentityObject two) {
+    for(size_t i = 0; i < LEN_SHA256; i++) {
+        if(one.id[i] != two.id[i]) return false;
+        if(one.password_hash[i] != two.password_hash[i]) return false;
+        if(one.next_id[i] != two.next_id[i]) return false;
+    }
+    return true;
+}
 }
