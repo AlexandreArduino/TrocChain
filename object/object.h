@@ -36,4 +36,6 @@ struct Object {
 namespace ObjectCreation {
     struct Object generate_object_template(const char *src, struct KeywordsDescription descriptors);
     bool save_object_to_file(struct Object object);
+    bool update_exif_data_to_image_file(struct Object object);
+    struct KeywordsDescription get_exif_descriptors_from_image(std::string signature);
 }
