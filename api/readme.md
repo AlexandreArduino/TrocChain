@@ -1,0 +1,1 @@
+Cette partie permet de fournir des fonctions les plus simples à utiliser.

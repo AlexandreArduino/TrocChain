@@ -2,10 +2,12 @@
 
 namespace ObjectCreation {
 
-    struct Object create(const char *src, struct KeywordsDescription descriptors) {
+    struct Object create(const char *src, struct KeywordsDescription descriptors, std::string user_signature) {
         struct Object output = ObjectCreation::generate_object_template(src, descriptors);
         ObjectCreation::save_object_to_file(output);
         ObjectCreation::update_exif_data_to_image_file(output);
+        // Add the new object signature to the objects list of the user in blockchain/identity/user_hash
+        ObjectCreation::add_object_to_user_file(output, user_signature);
         return output;
     }
 

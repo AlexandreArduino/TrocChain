@@ -15,6 +15,7 @@ namespace IdentityFileOperations {
             return false;
         } else {
             file << "PASSWORD_HASH=" << block.password_hash << std::endl;
+            file << "OBJECTS=()" << std::endl;
             file << "NEXT_HASH=" << block.next_id << std::endl;
             file.close();
         }

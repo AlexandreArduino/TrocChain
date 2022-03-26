@@ -1,6 +1,6 @@
 SOURCES = $(shell find ./ -type f -name '*.cpp')
 
-FLAGS = -lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio
+FLAGS = -lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio -std=c++17 -lstdc++fs
 OBJECTS = $(SOURCES:.cpp=.o)
 BUILD_OBJECTS = $(addprefix build/,$(OBJECTS))
 
