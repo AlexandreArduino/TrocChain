@@ -9,10 +9,10 @@ namespace IdentityCreation {
         
         logger.infoln("Creating new identity object...");
 
-        if(std::string(password).length() < MINIMUM_PASSWORD_SIZE) {
-            logger.errorln("The password must have a length of 12!");
-            return null_user;
-        }
+        // if(std::string(password).length() < MINIMUM_PASSWORD_SIZE) {
+        //     logger.errorln("The password must have a length of 12!");
+        //     return null_user;
+        // }
 
         struct IdentityObject new_identity;
 
@@ -38,7 +38,7 @@ namespace IdentityCreation {
     }
 
     bool save_identity_to_file(struct IdentityObject to_save) {
-        return IdentityFileOperations::write_new_block_independantly(to_save);
+        return IdentityFileOperations::write_new_block_and_update_previous(to_save);
     }
 
     bool save_genesis_identity() {

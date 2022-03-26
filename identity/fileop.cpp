@@ -24,11 +24,6 @@ namespace IdentityFileOperations {
 
     bool write_new_block_and_update_previous(struct IdentityObject block) {
 
-        if(!IdentityBlockOperations::compare(block, null_user)) {
-            logger.errorln("Cannot write null user block!");
-            return false;
-        }
-
         // First, write the new block independantly
         write_new_block_independantly(block);
 
