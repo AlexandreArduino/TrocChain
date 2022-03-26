@@ -32,8 +32,10 @@ struct Object {
 #define NULL_STRING "NULL"
 #define NULL_OBJECT (struct Object){NULL_STRING, NULL_STRING, NULL_STRING, (struct KeywordsDescription){NULL_STRING, NULL_STRING, NULL_STRING}};
 
+#define EXIF_RESULT_COMMAND_OFFSET "Description                     : "
 
 namespace ObjectCreation {
+    struct Object create(const char *src, struct KeywordsDescription descriptors);
     struct Object generate_object_template(const char *src, struct KeywordsDescription descriptors);
     bool save_object_to_file(struct Object object);
     bool update_exif_data_to_image_file(struct Object object);

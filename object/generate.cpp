@@ -1,6 +1,14 @@
 #include "object.h"
 
 namespace ObjectCreation {
+
+    struct Object create(const char *src, struct KeywordsDescription descriptors) {
+        struct Object output = ObjectCreation::generate_object_template(src, descriptors);
+        ObjectCreation::save_object_to_file(output);
+        ObjectCreation::update_exif_data_to_image_file(output);
+        return output;
+    }
+
     struct Object generate_object_template(const char *src, struct KeywordsDescription descriptors) {
         // This function generates the object template of a picture to add it to the network later
         struct Object new_object;
