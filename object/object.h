@@ -7,6 +7,8 @@
 #include <fstream>
 #include <filesystem>
 
+#define TIMESTAMP_MAX_NAME 15
+
 // Main Object Structure
 
 struct ObjectsList {
@@ -22,12 +24,13 @@ struct KeywordsDescription {
 
 struct Object {
     char signature[LEN_SHA256];
+    char cache_name[TIMESTAMP_MAX_NAME];
     const char *image_path;
     struct KeywordsDescription descriptors;
 }__attribute__((packed));
 
 #define NULL_STRING "NULL"
-#define NULL_OBJECT (struct Object){NULL_STRING, NULL_STRING, (struct KeywordsDescription){NULL_STRING, NULL_STRING, NULL_STRING}};
+#define NULL_OBJECT (struct Object){NULL_STRING, NULL_STRING, NULL_STRING, (struct KeywordsDescription){NULL_STRING, NULL_STRING, NULL_STRING}};
 
 
 namespace ObjectCreation {

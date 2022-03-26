@@ -43,6 +43,9 @@ namespace ObjectCreation {
             const char *cc_picture_signature = picture_signature.c_str();
             memcpy((void*)&new_object.signature[0], (void*)cc_picture_signature, LEN_SHA256);
 
+            const char *cc_cache_name = std::to_string(timestamp).c_str();
+            memcpy((void*)&new_object.cache_name[0], (void*)cc_cache_name, TIMESTAMP_MAX_NAME);
+
             return new_object;
         }
     }

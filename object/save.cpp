@@ -5,19 +5,42 @@ namespace ObjectCreation {
         
         logger.infoln(std::string("Saving ") + std::string(object.signature) + std::string(" image to file..."));
         
-        std::ofstream file;
-        std::string filename("blockchain/pictures/");
-        filename += std::string(object.signature);
-        filename += std::string(".jpeg");
+        std::string src(".cache/");
+        src += std::string(object.cache_name);
+        src += std::string(".jpeg");
+        
+        std::string dest("blockchain/pictures/");
+        dest += std::string(object.signature);
+        dest += std::string(".jpeg");
 
-        file.open(filename);
-        if(!file.is_open()) {
-            logger.errorln("Unable to open/write it!");
+        std::string content_src_file("");
+
+        // Read the content file
+        std::ifstream src_file;
+        src_file.open(src);
+        if(!src_file.is_open()) {
+            logger.errorln(std::string("Unable to open/read ") + src + std::string(" !"));
             return false;
         } else {
+            std::string line = "";
+            while(std::getline(src_file, line)) {
+                content_src_file += line + std::string("\n");
+            }
+            src_file.close();
             
+            // Write it in the new file
+            std::ofstream dest_file;
+            dest_file.open(dest);
+            if(!dest_file.is_open()) {
+                logger.errorln(std::string("Unable to open/write ") + dest + std::string(" !"));
+                return false;
+            } else {
+                dest_file << content_src_file;
+                dest_file.close();
+                return true;
+            }
         }
-        
+
         return true;
     }
 }
